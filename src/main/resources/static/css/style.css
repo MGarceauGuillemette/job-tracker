@@ -306,3 +306,16 @@ th {
         gap: 4px;
     }
 }
+
+.button-danger {
+    background: #dc3545;
+    color: white;
+}
+
+.button-danger:hover {
+    background: #b02a37;
+}
+
+.details-actions form {
+    margin: 0;
+}

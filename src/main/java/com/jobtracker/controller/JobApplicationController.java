@@ -114,4 +114,10 @@ public class JobApplicationController {
 
         return "redirect:/";
     }
+
+    @PostMapping("/applications/{id}/delete")
+    public String deleteApplication(@PathVariable Long id) {
+        service.deleteById(id);
+        return "redirect:/";
+    }
 }

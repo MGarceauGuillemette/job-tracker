@@ -58,23 +58,24 @@
         </span>
         </div>
 
-        <div class="detail-notes">
-            <h3>Notes</h3>
-            <p th:if="${job.notes != null and !job.notes.isBlank()}"
-               th:text="${job.notes}">Application notes</p>
-            <p th:unless="${job.notes != null and !job.notes.isBlank()}">
-                No notes added.
-            </p>
-        </div>
-
         <div class="details-actions">
             <a class="button"
                th:href="@{/applications/{id}/edit(id=${job.id})}">
                 Edit application
             </a>
+
             <a class="button button-secondary" th:href="@{/}">
                 Back to applications
             </a>
+
+            <form th:action="@{/applications/{id}/delete(id=${job.id})}"
+                  method="post"
+                  onsubmit="return confirm('Are you sure you want to delete this application? This action cannot be undone.');">
+
+                <button type="submit" class="button button-danger">
+                    Delete application
+                </button>
+            </form>
         </div>
     </section>
 
