@@ -63,7 +63,8 @@
                 <option value="">Choose a status</option>
                 <option th:each="status : ${statuses}"
                         th:value="${status}"
-                        th:text="${status}">APPLIED</option>
+                        th:text="${status}">APPLIED
+                </option>
             </select>
             <p class="field-error"
                th:if="${#fields.hasErrors('status')}"

@@ -1,13 +1,10 @@
 package com.jobtracker.service;
 
-import com.jobtracker.model.JobApplication;
 import com.jobtracker.model.ApplicationStatus;
+import com.jobtracker.model.JobApplication;
 import com.jobtracker.repository.JobApplicationRepository;
-
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
-
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
