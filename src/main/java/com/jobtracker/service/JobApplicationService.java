@@ -1,5 +1,6 @@
 package com.jobtracker.service;
 
+import com.jobtracker.model.ApplicationStatus;
 import com.jobtracker.model.JobApplication;
 import com.jobtracker.repository.JobApplicationRepository;
 import org.springframework.stereotype.Service;
@@ -17,6 +18,10 @@ public class JobApplicationService {
 
     public List<JobApplication> findAll() {
         return repository.findAll();
+    }
+
+    public List<JobApplication> findByStatus(ApplicationStatus status) {
+        return repository.findByStatus(status);
     }
 
     public JobApplication findById(Long id) {

@@ -32,6 +32,24 @@
         </div>
     </section>
 
+    <form method="get" th:action="@{/}" class="filter-form">
+        <label for="status">Filter by status:</label>
+
+        <select id="status" name="status">
+            <option value="">All statuses</option>
+
+            <option th:each="status : ${statuses}"
+                    th:value="${status}"
+                    th:text="${status}"
+                    th:selected="${status == selectedStatus}">
+            </option>
+        </select>
+
+        <button type="submit" class="button">
+            Apply filter
+        </button>
+    </form>
+
     <section class="panel">
         <div th:if="${applications.isEmpty()}" class="empty-state">
             <h2>No applications yet</h2>

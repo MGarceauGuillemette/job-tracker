@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestParam;
+import java.util.List;
 
 @Controller
 public class JobApplicationController {
@@ -23,8 +25,22 @@ public class JobApplicationController {
     }
 
     @GetMapping("/")
-    public String listApplications(Model model) {
-        model.addAttribute("applications", service.findAll());
+    public String listApplications(
+            @RequestParam(required = false) ApplicationStatus status,
+            Model model) {
+
+        List<JobApplication> applications;
+
+        if (status == null) {
+            applications = service.findAll();
+        } else {
+            applications = service.findByStatus(status);
+        }
+
+        model.addAttribute("applications", applications);
+        model.addAttribute("statuses", ApplicationStatus.values());
+        model.addAttribute("selectedStatus", status);
+
         return "applications";
     }
 
