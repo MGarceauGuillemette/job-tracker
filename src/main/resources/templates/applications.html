@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JobTrack | My Applications</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+<header class="topbar">
+    <div class="container">
+        <a class="brand" th:href="@{/}">JobTrack</a>
+        <span class="subtitle">Your job search, organized.</span>
+    </div>
+</header>
+
+<main class="container">
+    <section class="page-heading">
+        <div>
+            <h1>My Applications</h1>
+            <p>Keep track of the opportunities you're pursuing.</p>
+        </div>
+
+        <div class="heading-actions">
+        <span class="count"
+              th:text="${applications.size()} + ' applications'">
+            0 applications
+        </span>
+            <a class="button" th:href="@{/applications/new}">
+                + Add application
+            </a>
+        </div>
+    </section>
+
+    <section class="panel">
+        <div th:if="${applications.isEmpty()}" class="empty-state">
+            <h2>No applications yet</h2>
+            <p>Your job applications will appear here when you add them.</p>
+        </div>
+
+        <div th:unless="${applications.isEmpty()}"
+             class="table-wrapper">
+            <table>
+                <thead>
+                <tr>
+                    <th>Company</th>
+                    <th>Job title</th>
+                    <th>Status</th>
+                    <th>Date applied</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="job : ${applications}">
+                    <td th:text="${job.companyName}">Company</td>
+                    <td th:text="${job.jobTitle}">Job title</td>
+                    <td>
+                            <span class="status"
+                                  th:text="${job.status}">
+                                APPLIED
+                            </span>
+                    </td>
+                    <td th:text="${job.dateApplied != null
+                            ? job.dateApplied : '—'}">—</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+</main>
+</body>
+</html>

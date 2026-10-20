@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JobTrack | Add Application</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+<header class="topbar">
+    <div class="container">
+        <a class="brand" th:href="@{/}">JobTrack</a>
+        <span class="subtitle">Your job search, organized.</span>
+    </div>
+</header>
+
+<main class="container">
+    <section class="page-heading">
+        <div>
+            <h1>Add an application</h1>
+            <p>Record a job opportunity you're tracking.</p>
+        </div>
+    </section>
+
+    <form class="panel form-panel"
+          th:action="@{/applications}"
+          th:object="${form}"
+          method="post">
+
+        <div class="field">
+            <label for="companyName">Company name *</label>
+            <input id="companyName" type="text"
+                   th:field="*{companyName}" required maxlength="255">
+            <p class="field-error"
+               th:if="${#fields.hasErrors('companyName')}"
+               th:errors="*{companyName}"></p>
+        </div>
+
+        <div class="field">
+            <label for="jobTitle">Job title *</label>
+            <input id="jobTitle" type="text"
+                   th:field="*{jobTitle}" required maxlength="255">
+            <p class="field-error"
+               th:if="${#fields.hasErrors('jobTitle')}"
+               th:errors="*{jobTitle}"></p>
+        </div>
+
+        <div class="field">
+            <label for="jobUrl">Job posting URL</label>
+            <input id="jobUrl" type="url"
+                   th:field="*{jobUrl}" maxlength="255"
+                   placeholder="https://example.com/jobs/123">
+            <p class="field-error"
+               th:if="${#fields.hasErrors('jobUrl')}"
+               th:errors="*{jobUrl}"></p>
+        </div>
+
+        <div class="field">
+            <label for="status">Status *</label>
+            <select id="status" th:field="*{status}" required>
+                <option value="">Choose a status</option>
+                <option th:each="status : ${statuses}"
+                        th:value="${status}"
+                        th:text="${status}">APPLIED</option>
+            </select>
+            <p class="field-error"
+               th:if="${#fields.hasErrors('status')}"
+               th:errors="*{status}"></p>
+        </div>
+
+        <div class="field">
+            <label for="dateApplied">Date applied</label>
+            <input id="dateApplied" type="date"
+                   th:field="*{dateApplied}">
+        </div>
+
+        <div class="field">
+            <label for="followUpDate">Follow-up date</label>
+            <input id="followUpDate" type="date"
+                   th:field="*{followUpDate}">
+        </div>
+
+        <div class="field">
+            <label for="notes">Notes</label>
+            <textarea id="notes" th:field="*{notes}"
+                      rows="4" maxlength="2000"
+                      placeholder="Interview details, contacts, reminders..."></textarea>
+            <p class="field-error"
+               th:if="${#fields.hasErrors('notes')}"
+               th:errors="*{notes}"></p>
+        </div>
+
+        <div class="form-actions">
+            <a class="button button-secondary" th:href="@{/}">Cancel</a>
+            <button class="button" type="submit">Save application</button>
+        </div>
+    </form>
+</main>
+</body>
+</html>
