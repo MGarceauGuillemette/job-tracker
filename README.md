@@ -37,9 +37,23 @@ and continuous integration.
 | CI                  | GitHub Actions              |
 | Frontend            | HTML, CSS                   |
 
+
 ## Screenshots
 
-Screenshots of the application dashboard, application form, and details page will be added here.
+### Dashboard
+View application statistics, filter by status, and manage job applications.
+
+![Job Tracker Dashboard](screenshots/dashboard.png)
+
+### Application Form
+Create and edit applications with validated form fields.
+
+![Application Form](screenshots/application-form.png)
+
+### Application Details
+View application information, notes, and follow-up dates.
+
+![Application Details](screenshots/application-details.png)
 
 ## Architecture
 

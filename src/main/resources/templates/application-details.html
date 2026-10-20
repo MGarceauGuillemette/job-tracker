@@ -58,6 +58,19 @@
         </span>
         </div>
 
+        <div class="detail-notes">
+            <h3>Notes</h3>
+
+            <p th:if="${job.notes != null and !job.notes.isBlank()}"
+               th:text="${job.notes}">
+                Application notes
+            </p>
+
+            <p th:unless="${job.notes != null and !job.notes.isBlank()}">
+                No notes added.
+            </p>
+        </div>
+
         <div class="details-actions">
             <a class="button"
                th:href="@{/applications/{id}/edit(id=${job.id})}">
