@@ -32,6 +32,46 @@
         </div>
     </section>
 
+    <section class="stats-grid">
+
+        <div class="stat-card">
+            <span class="stat-label">Total Applications</span>
+            <span class="stat-value" th:text="${totalCount}">0</span>
+        </div>
+
+        <div class="stat-card">
+            <span class="stat-label">Applied</span>
+            <span class="stat-value" th:text="${appliedCount}">0</span>
+        </div>
+
+        <div class="stat-card">
+            <span class="stat-label">Interviews</span>
+            <span class="stat-value" th:text="${interviewCount}">0</span>
+        </div>
+
+        <div class="stat-card">
+            <span class="stat-label">Offers</span>
+            <span class="stat-value" th:text="${offerCount}">0</span>
+        </div>
+
+        <div class="stat-card">
+            <span class="stat-label">Rejected</span>
+            <span class="stat-value" th:text="${rejectedCount}">0</span>
+        </div>
+
+        <div class="stat-card">
+            <span class="stat-label">Saved</span>
+            <span class="stat-value" th:text="${savedCount}">0</span>
+        </div>
+
+        <div class="stat-card">
+            <span class="stat-label">Withdrawn</span>
+            <span class="stat-value" th:text="${withdrawnCount}">0</span>
+        </div>
+
+    </section>
+
+
     <form method="get" th:action="@{/}" class="filter-form">
         <label for="status">Filter by status:</label>
 

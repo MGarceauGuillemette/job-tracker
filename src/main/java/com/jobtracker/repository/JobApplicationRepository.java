@@ -9,4 +9,5 @@ public interface JobApplicationRepository extends  JpaRepository<JobApplication,
 
     List<JobApplication> findByStatus(ApplicationStatus status);
 
+    Long countByStatus(ApplicationStatus status);
 }

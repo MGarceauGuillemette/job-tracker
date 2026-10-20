@@ -348,3 +348,44 @@ th {
     outline: 2px solid #b8c8ff;
     border-color: #3157c8;
 }
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 16px;
+    margin-bottom: 28px;
+}
+
+.stat-card {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 22px;
+    background: #ffffff;
+    border: 1px solid #e2e6ee;
+    border-radius: 12px;
+}
+
+.stat-label {
+    color: #697386;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.stat-value {
+    color: #202938;
+    font-size: 32px;
+    font-weight: bold;
+}
+
+@media (max-width: 900px) {
+    .stats-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 500px) {
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+}

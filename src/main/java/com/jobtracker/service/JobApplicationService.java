@@ -42,4 +42,12 @@ public class JobApplicationService {
     public JobApplication create(JobApplication application) {
         return repository.save(application);
     }
+
+    public long countAll() {
+        return repository.count();
+    }
+
+    public long countByStatus(ApplicationStatus status) {
+        return repository.countByStatus(status);
+    }
 }

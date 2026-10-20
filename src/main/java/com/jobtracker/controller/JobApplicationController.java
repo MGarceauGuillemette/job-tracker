@@ -41,6 +41,20 @@ public class JobApplicationController {
         model.addAttribute("statuses", ApplicationStatus.values());
         model.addAttribute("selectedStatus", status);
 
+        model.addAttribute("totalCount", service.countAll());
+        model.addAttribute("appliedCount",
+                service.countByStatus(ApplicationStatus.APPLIED));
+        model.addAttribute("interviewCount",
+                service.countByStatus(ApplicationStatus.INTERVIEW));
+        model.addAttribute("offerCount",
+                service.countByStatus(ApplicationStatus.OFFER));
+        model.addAttribute("rejectedCount",
+                service.countByStatus(ApplicationStatus.REJECTED));
+        model.addAttribute("savedCount",
+                service.countByStatus(ApplicationStatus.SAVED));
+        model.addAttribute("withdrawnCount",
+                service.countByStatus(ApplicationStatus.WITHDRAWN));
+
         return "applications";
     }
 
