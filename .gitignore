@@ -10,3 +10,6 @@ target/
 .env.*
 !.env.example
 application-local.properties
+
+# Other files
+HELP.md

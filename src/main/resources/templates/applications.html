@@ -47,6 +47,7 @@
                     <th>Job title</th>
                     <th>Status</th>
                     <th>Date applied</th>
+                    <th>Actions</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -61,6 +62,19 @@
                     </td>
                     <td th:text="${job.dateApplied != null
                             ? job.dateApplied : '—'}">—</td>
+                    <td>
+                        <div class="actions">
+                            <a class="button button-secondary button-small"
+                               th:href="@{/applications/{id}(id=${job.id})}">
+                                View
+                            </a>
+
+                            <a class="button button-small"
+                               th:href="@{/applications/{id}/edit(id=${job.id})}">
+                                Edit
+                            </a>
+                        </div>
+                    </td>
                 </tr>
                 </tbody>
             </table>

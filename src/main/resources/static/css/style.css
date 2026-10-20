@@ -211,3 +211,98 @@ th {
         padding: 20px;
     }
 }
+
+.button-small {
+    padding: 7px 12px;
+    font-size: 13px;
+    border-radius: 6px;
+}
+
+.actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+
+/* Application details page */
+.details-panel {
+    display: block;
+    background: #ffffff;
+    border: 1px solid #e2e6ee;
+    border-radius: 12px;
+    padding: 28px;
+}
+
+.details-panel h2 {
+    margin: 0 0 24px;
+    font-size: 24px;
+    color: #202938;
+}
+
+.detail-row {
+    display: grid;
+    grid-template-columns: 160px minmax(0, 1fr);
+    gap: 16px;
+    padding: 16px 0;
+    border-bottom: 1px solid #edf0f5;
+    line-height: 1.6;
+}
+
+.detail-label {
+    color: #697386;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.detail-value {
+    min-width: 0;
+    overflow-wrap: anywhere;
+}
+
+.detail-value a {
+    color: #3157c8;
+    text-decoration: none;
+}
+
+.detail-value a:hover {
+    text-decoration: underline;
+}
+
+.detail-notes {
+    margin-top: 24px;
+    padding: 18px;
+    background: #f8f9fc;
+    border: 1px solid #e2e6ee;
+    border-radius: 8px;
+}
+
+.detail-notes h3 {
+    margin: 0 0 10px;
+    font-size: 16px;
+}
+
+.detail-notes p {
+    margin: 0;
+    line-height: 1.7;
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+}
+
+.details-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 24px;
+}
+
+@media (max-width: 650px) {
+    .details-panel {
+        padding: 20px;
+    }
+
+    .detail-row {
+        grid-template-columns: 1fr;
+        gap: 4px;
+    }
+}

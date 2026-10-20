@@ -17,13 +17,15 @@
 <main class="container">
     <section class="page-heading">
         <div>
-            <h1>Add an application</h1>
+            <h1 th:text="${applicationId != null} ? 'Edit application' : 'Add application'">
+                Add application
+            </h1>
             <p>Record a job opportunity you're tracking.</p>
         </div>
     </section>
 
     <form class="panel form-panel"
-          th:action="@{/applications}"
+          th:action="${applicationId != null} ? @{/applications/{id}/edit(id=${applicationId})} : @{/applications}"
           th:object="${form}"
           method="post">
 
